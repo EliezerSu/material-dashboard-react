@@ -46,6 +46,10 @@ function Basic() {
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
+  const signIn = () => {
+    console.log("Inicie sesion");
+  };
+
   return (
     <BasicLayout image={bgImage}>
       <Card>
@@ -102,7 +106,7 @@ function Basic() {
               </MDTypography>
             </MDBox>
             <MDBox mt={4} mb={1}>
-              <MDButton variant="gradient" color="info" fullWidth>
+              <MDButton variant="gradient" color="info" fullWidth onClick={signIn}>
                 sign in
               </MDButton>
             </MDBox>

@@ -34,6 +34,24 @@ function DashboardLayout({ children }) {
 
   useEffect(() => {
     setLayout(dispatch, "dashboard");
+    // Agrega el event listener para las teclas F1 y F2
+    const handleKeyPress = (event) => {
+      if (event.key === "F2") {
+        window.location.href = "http://localhost:3000/tables";
+      } else if (event.key === "F4") {
+        window.location.href = "http://localhost:3000/billing";
+      } else if (event.key === "F9") {
+        window.location.href = "http://localhost:3000/profile";
+      }
+    };
+
+    // Agrega el event listener al montar el componente
+    document.addEventListener("keydown", handleKeyPress);
+
+    // Remueve el event listener al desmontar el componente
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
   }, [pathname]);
 
   return (
